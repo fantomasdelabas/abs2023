@@ -75,7 +75,7 @@ const AttendanceGrid: React.FC = () => {
         <th
           key={day}
           className={clsx(
-            'w-10 h-12 text-xs border border-gray-300 relative',
+            'w-20 h-24 text-xs border border-gray-300 relative',
             isWeekend && isValidDay ? 'bg-gray-200' : 'bg-white',
             !isValidDay && 'bg-gray-100'
           )}
@@ -96,9 +96,9 @@ const AttendanceGrid: React.FC = () => {
   };
 
   const renderPupilRows = () => {
-    // Fill to 35 rows as per requirements
+    // Fill to 70 rows as per updated requirements
     const rows = [];
-    const maxRows = 35;
+    const maxRows = 70;
     
     for (let i = 0; i < maxRows; i++) {
       const pupil = pupils[i];
