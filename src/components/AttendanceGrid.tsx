@@ -75,7 +75,7 @@ const AttendanceGrid: React.FC = () => {
         <th
           key={day}
           className={clsx(
-            'w-20 h-24 text-xs border border-gray-300 relative',
+            'w-40 h-12 text-xs border border-gray-300 relative',
             isWeekend && isValidDay ? 'bg-gray-200' : 'bg-white',
             !isValidDay && 'bg-gray-100'
           )}
@@ -175,10 +175,10 @@ const AttendanceGrid: React.FC = () => {
           <table className="w-full border-collapse">
             <thead>
               <tr>
-                <th className="w-12 h-12 bg-sky-100 border border-gray-300 text-xs font-bold">
+                <th className="w-24 h-6 bg-sky-100 border border-gray-300 text-xs font-bold">
                   N°
                 </th>
-                <th className="w-64 h-12 bg-sky-100 border border-gray-300 text-xs font-bold text-left px-2">
+                <th className="w-[32rem] h-6 bg-sky-100 border border-gray-300 text-xs font-bold text-left px-2">
                   Nom et prénom(s) des élèves
                 </th>
                 {renderDayHeaders()}
