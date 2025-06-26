@@ -82,7 +82,7 @@ const AttendanceGrid: React.FC = () => {
         >
           {isValidDay && (
             <>
-              <div className="font-bold text-center pt-1">{day}</div>
+              <div className="font-bold text-center pt-1 text-2xl">{day}</div>
               <div className="text-center text-gray-600 text-xs">
                 {weekdayNames[dayOfWeek]}
               </div>
@@ -203,12 +203,12 @@ const AttendanceGrid: React.FC = () => {
       <div className="bg-gray-50 border-t border-gray-200 p-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
           <div>
-            <label className="block text-gray-700 font-medium mb-1">
+            <label className="block text-gray-700 font-medium mb-1 text-2xl">
               Visa et date de contrôle:
             </label>
             <input
               type="text"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500 text-2xl"
               placeholder="Signature et date"
             />
           </div>
@@ -225,12 +225,12 @@ const AttendanceGrid: React.FC = () => {
           </div>
           
           <div>
-            <label className="block text-gray-700 font-medium mb-1">
+            <label className="block text-gray-700 font-medium mb-1 text-2xl">
               Date:
             </label>
             <input
               type="date"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500 text-2xl"
             />
           </div>
         </div>
