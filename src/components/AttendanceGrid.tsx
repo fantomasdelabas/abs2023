@@ -75,7 +75,7 @@ const AttendanceGrid: React.FC = () => {
         <th
           key={day}
           className={clsx(
-            'w-8 h-12 text-xs border border-gray-300 relative',
+            'w-10 h-12 text-xs border border-gray-300 relative',
             isWeekend && isValidDay ? 'bg-gray-200' : 'bg-white',
             !isValidDay && 'bg-gray-100'
           )}
@@ -171,7 +171,7 @@ const AttendanceGrid: React.FC = () => {
 
       <div className="flex">
         {/* Main Grid */}
-        <div className="flex-1 overflow-x-auto">
+        <div className="flex-1 overflow-auto max-h-[70vh]">
           <table className="w-full border-collapse">
             <thead>
               <tr>
