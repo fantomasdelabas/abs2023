@@ -103,7 +103,7 @@ const PupilRow: React.FC<PupilRowProps> = ({
               {/* AM Half */}
               <div
                 className={clsx(
-                  'flex-1 h-full flex items-center justify-center text-xs font-bold cursor-pointer hover:bg-gray-200 transition-colors',
+                  'flex-1 h-full flex items-center justify-center text-2xl font-bold cursor-pointer hover:bg-gray-200 transition-colors',
                   getStatusColor(amStatus)
                 )}
                 onClick={() => onCellClick(pupil.id, dateStr, 'AM')}
@@ -118,7 +118,7 @@ const PupilRow: React.FC<PupilRowProps> = ({
               {/* PM Half */}
               <div
                 className={clsx(
-                  'flex-1 h-full flex items-center justify-center text-xs font-bold cursor-pointer hover:bg-gray-200 transition-colors',
+                  'flex-1 h-full flex items-center justify-center text-2xl font-bold cursor-pointer hover:bg-gray-200 transition-colors',
                   getStatusColor(pmStatus)
                 )}
                 onClick={() => onCellClick(pupil.id, dateStr, 'PM')}
@@ -138,12 +138,12 @@ const PupilRow: React.FC<PupilRowProps> = ({
   return (
     <tr className="hover:bg-gray-50">
       {/* Row Number */}
-      <td className="w-16 h-12 bg-sky-50 border border-gray-300 text-center text-sm font-medium">
+      <td className="w-16 h-12 bg-sky-50 border border-gray-300 text-center text-2xl font-medium">
         {rowNumber}
       </td>
       
       {/* Pupil Name */}
-      <td className="w-96 h-12 border border-gray-300 px-2 text-sm">
+      <td className="w-96 h-12 border border-gray-300 px-2 text-2xl">
         {pupil ? (
           <div className="flex items-center justify-between">
             <button
