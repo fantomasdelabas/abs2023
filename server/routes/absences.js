@@ -45,20 +45,27 @@ router.get('/pupil/:pupilId', (req, res) => {
 router.put('/', (req, res) => {
   try {
     const { pupil_id, date, half_day, status } = req.body;
-    
-    if (status === 'P') {
+
+    // Ensure a valid status value is always used
+    const statusValue = status || 'P';
+
+    if (!pupil_id || !date || !half_day) {
+      return res.status(400).json({ error: 'Données manquantes' });
+    }
+
+    if (statusValue === 'P') {
       // If status is Present, delete the absence record
       const stmt = db.prepare('DELETE FROM absences WHERE pupil_id = ? AND date = ? AND half_day = ?');
       stmt.run(pupil_id, date, half_day);
     } else {
       // Otherwise, insert or update the absence
       const stmt = db.prepare(`
-        INSERT INTO absences (pupil_id, date, half_day, status) 
+        INSERT INTO absences (pupil_id, date, half_day, status)
         VALUES (?, ?, ?, ?)
-        ON CONFLICT(pupil_id, date, half_day) 
+        ON CONFLICT(pupil_id, date, half_day)
         DO UPDATE SET status = excluded.status
       `);
-      stmt.run(pupil_id, date, half_day, status);
+      stmt.run(pupil_id, date, half_day, statusValue);
     }
     
     res.json({ success: true });
