@@ -285,7 +285,7 @@ const PupilModal: React.FC = () => {
                 {alerts.map(alert => (
                   <div key={alert.id} className="bg-orange-50 border border-orange-200 rounded-lg p-3">
                     <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-orange-800">
+                      <span className="text-2xl font-medium text-orange-800">
                         {format(new Date(alert.alert_date), 'dd/MM/yyyy', { locale: fr })}
                       </span>
                     </div>
@@ -310,7 +310,7 @@ const PupilModal: React.FC = () => {
                 {absences.map(absence => (
                   <div key={absence.id} className="flex items-center justify-between py-2 px-3 bg-gray-50 rounded-lg">
                     <div className="flex items-center space-x-3">
-                      <span className="text-sm font-medium">
+                      <span className="text-2xl font-medium">
                         {format(new Date(absence.date), 'dd/MM/yyyy', { locale: fr })}
                       </span>
                       <span className="text-sm text-gray-600">
