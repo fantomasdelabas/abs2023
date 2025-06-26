@@ -80,12 +80,48 @@ export const AttendanceProvider: React.FC<{ children: React.ReactNode }> = ({ ch
     }
   };
 
-  const updateAbsence = async (pupilId: number, date: string, halfDay: 'AM' | 'PM', status: 'P' | 'E' | 'O' | 'C') => {
+  const updateAbsence = async (
+    pupilId: number,
+    date: string,
+    halfDay: 'AM' | 'PM',
+    status: 'P' | 'E' | 'O' | 'C'
+  ) => {
+    // Optimistic UI update so the letter changes immediately
+    setAbsences(prev => {
+      const others = prev.filter(
+        a => !(a.pupil_id === pupilId && a.date === date && a.half_day === halfDay)
+      );
+
+      if (status === 'P') {
+        // Removing the absence means the pupil is present
+        return others;
+      }
+
+      const existing = prev.find(
+        a => a.pupil_id === pupilId && a.date === date && a.half_day === halfDay
+      );
+
+      const newAbsence = {
+        id: existing ? existing.id : Date.now(),
+        pupil_id: pupilId,
+        date,
+        half_day: halfDay,
+        status,
+      } as Absence;
+
+      return [...others, newAbsence];
+    });
+
     try {
-      await attendanceAPI.updateAbsence({ pupil_id: pupilId, date, half_day: halfDay, status });
+      await attendanceAPI.updateAbsence({
+        pupil_id: pupilId,
+        date,
+        half_day: halfDay,
+        status,
+      });
       await refreshData();
     } catch (error) {
-      console.error('Erreur lors de la mise à jour de l\'absence:', error);
+      console.error("Erreur lors de la mise à jour de l'absence:", error);
     }
   };
 
