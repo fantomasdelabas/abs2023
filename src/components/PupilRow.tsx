@@ -93,7 +93,7 @@ const PupilRow: React.FC<PupilRowProps> = ({
         <td
           key={day}
           className={clsx(
-            'w-10 h-10 border border-gray-300 relative p-0',
+            'w-20 h-10 border border-gray-300 relative p-0',
             isWeekend && isValidDay ? 'bg-gray-100' : 'bg-white',
             !isValidDay && 'bg-gray-50'
           )}
@@ -138,7 +138,7 @@ const PupilRow: React.FC<PupilRowProps> = ({
   return (
     <tr className="hover:bg-gray-50">
       {/* Row Number */}
-      <td className="w-12 h-8 bg-sky-50 border border-gray-300 text-center text-sm font-medium">
+      <td className="w-24 h-8 bg-sky-50 border border-gray-300 text-center text-sm font-medium">
         {rowNumber}
       </td>
       
